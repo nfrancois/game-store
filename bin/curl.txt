@@ -1,0 +1,5 @@
+curl -i -X GET http://localhost:8080/api/games.json
+curl -i -X GET http://localhost:8080/api/games/1.json
+curl -i -X PUT -d '{"id":1,"name":"Darts 123","genre":"Pub game 123","description":"Darts is 123...","image":"darts 123.jpg","rating":3}' http://localhost:8080/api/games.json
+curl -i -X PUT -d '{"name":"New Darts 123","genre":"Pub game 123","description":"Darts is 123...","image":"darts 123.jpg","rating":3}' http://localhost:8080/api/games.json
+curl -i -X DELETE http://localhost:8080/api/games/1.json

@@ -1,0 +1,54 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<link rel="import" href="game.html">
+
+<polymer-element name="x-games">
+	<template>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap-theme.min.css">
+    
+		<header class="page-header">
+		    <h1>Games <small>{{games.length}} games</small>
+		        <a href="#/games/new" class="btn btn-primary">Add a game</a>
+		    </h1>
+		</header>
+
+		<section class="well form-inline">
+		    <input type="text" placeholder="Search" value="{{search}}" class="span5">
+		    <section class="pull-right">
+		        <button class="btn btn-success" on-click="{{compact}}"><i class="icon-white {{ {'glyphicon glyphicon-th-list' : !isCompact , 'glyphicon glyphicon-th' : isCompact } }}"></i></button>
+		        <button class="btn btn-info" on-click="{{sort}}" data-field="name">Sort by name</button>
+		        <button class="btn btn-info" on-click="{{sort}}" data-field="rating">Sort by rating</button>
+		    </section>
+		</section>
+
+		<template if="{{!isCompact}}">
+		  <template repeat="{{game in games | filterSearch(search) | sortBy(sortField, sortAscending)}}">
+		    <x-game game="{{game}}" on-delete="{{delete}}"></x-game>
+		  </template>
+	  	</template>
+
+	    <template if="{{isCompact}}">
+		    <table class="table table-striped">
+				    <thead>
+				    <tr>
+				        <th>Name</th>
+				        <th>Genre</th>
+				        <th>Rating</th>
+				    </tr>
+				    </thead>
+				    <tbody>
+		         <template repeat="{{game in games | filterSearch(search) | sortBy(sortField, sortAscending)}}">
+						    <tr>
+						        <td>{{game.name}}</td>
+						        <td>{{game.genre}}</td>
+						        <td>{{game.rating | stars}}</td>
+						    </tr>
+		         </template>
+				    </tbody>
+			</table>
+	    </template>
+	</template>
+  <script type="application/dart" src="games.dart"></script>
+</polymer-element>

@@ -1,0 +1,54 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<polymer-element name="x-game-edit">
+  <template>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap-theme.min.css"> 
+  	<header class="page-header">
+		<h1>Game edit</h1>
+	</header>
+  
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Name: </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="{{game.name}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Image: </label>
+            <div class="col-sm-9">
+              <input class="form-control"  type="text" value="{{game.image}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Genre: </label>
+            <div class="col-sm-9">
+              <input class="form-control"  type="text" value="{{game.genre}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Description: </label>
+            <div class="col-sm-9">
+              <textarea class="form-control"  value="{{game.description}}"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Rating: </label>
+            <div class="col-sm-9">
+              <input class="form-control" type="number" value="{{game.rating | asInt}}" placeholder="from 1 to 5" min="1" max="5">
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <a href="#/games" class="btn btn-danger btn-small">Cancel</a>
+            <button on-click="{{save}}" class="btn btn-success">Save</button>
+          </div>
+        </div>
+ 
+    </div>
+  </template>
+  <script type="application/dart" src="game-edit.dart"></script>
+</polymer-element>

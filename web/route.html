@@ -1,0 +1,20 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<link rel="import" href="games.html">
+<link rel="import" href="game-edit.html">
+
+<polymer-element name="x-route">
+  <template>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap-theme.min.css">
+    
+    <template if="{{route.url == gamesUrl}}">
+      <x-games></x-games>
+    </template>
+    <template if="{{route.url == gameUrl || route.url == newGameUrl}}">
+      <x-game-edit gameId="{{route[1] | asInt}}"></x-game-edit>
+    </template>
+  </template>
+  <script type="application/dart" src="route.dart"></script>
+</polymer-element>
