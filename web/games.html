@@ -1,4 +1,9 @@
 <link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/core_elements/core_icons.html">
+<link rel="import" href="packages/core_elements/core_toolbar.html">
+<link rel="import" href="packages/core_elements/core_media_query.html">
+<link rel="import" href="packages/paper_elements/paper_icon_button.html">
+
 
 <link rel="import" href="game.html">
 
@@ -7,6 +12,14 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap-theme.min.css">
+    
+    <!-- Navigation bar -->
+    <core-toolbar style="background: #4285f4;">
+      <paper-icon-button icon="menu"></paper-icon-button>
+      <span flex>Game Store</span>
+      <paper-icon-button icon="refresh"></paper-icon-button>
+      <paper-icon-button icon="more-vert"></paper-icon-button>
+    </core-toolbar>   
     
 		<header class="page-header">
 		    <h1>Games <small>{{games.length}} games</small>
