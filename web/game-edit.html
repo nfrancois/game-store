@@ -1,51 +1,49 @@
 <link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/paper_elements/paper_input.html">
+<link rel="import" href="packages/paper_elements/paper_button.html">
 
 <polymer-element name="x-game-edit">
   <template>
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="packages/bootstrap_for_pub/3.1.0/css/bootstrap-theme.min.css"> 
   	<header class="page-header">
-		<h1>Game edit</h1>
-	</header>
+		  <h1>Game edit</h1>
+	   </header>
   
     <div class="form-horizontal">
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Name: </label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" value="{{game.name}}">
-            </div>
+        <div>
+          <paper-input-decorator label="Name" floatingLabel error="name is required!" autoValidate>
+            <input is="core-input" value="{{game.name}}" required>
+          </paper-input-decorator>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Image: </label>
-            <div class="col-sm-9">
-              <input class="form-control"  type="text" value="{{game.image}}">
-            </div>
+        <div>
+          <paper-input-decorator label="Image" floatingLabel autoValidate>
+            <input is="core-input" value="{{game.image}}" required>
+          </paper-input-decorator>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Genre: </label>
-            <div class="col-sm-9">
-              <input class="form-control"  type="text" value="{{game.genre}}">
-            </div>
+        <div>
+          <paper-input-decorator label="Genre" floatingLabel autoValidate>
+            <input is="core-input" value="{{game.genre}}" required>
+          </paper-input-decorator>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Description: </label>
-            <div class="col-sm-9">
-              <textarea class="form-control"  value="{{game.description}}"></textarea>
-            </div>
+        <div>
+          <paper-input-decorator label="Description" floatingLabel autoValidate>
+            <input is="core-input" value="{{game.description}}" required>
+          </paper-input-decorator>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Rating: </label>
-            <div class="col-sm-9">
-              <input class="form-control" type="number" value="{{game.rating | asInt}}" placeholder="from 1 to 5" min="1" max="5">
-            </div>
+        <div>
+          <paper-input-decorator label="Rating" floatingLabel autoValidate>
+            <input is="core-input"  value="{{game.rating | asInt}}" type="number" required>
+          </paper-input-decorator>
         </div>
-        <hr/>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <a href="#/games" class="btn btn-danger btn-small">Cancel</a>
-            <button on-click="{{save}}" class="btn btn-success">Save</button>
-          </div>
+        <div>
+          <paper-button class="colored custom" on-click="{{save}}">
+            <core-icon icon="check"></core-icon>
+            ok
+          </paper-button>
+          <paper-button class="custom" on-click="{{cancel}}">
+            <core-icon icon="clear"></core-icon>
+            cancel
+          </paper-button>
         </div>
  
     </div>

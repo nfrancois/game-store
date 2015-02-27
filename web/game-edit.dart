@@ -22,4 +22,6 @@ class XGameEdit extends PolymerElement {
   var asInt = new GenericTransformer((int v) => v.toString(), int.parse);
   
   save(MouseEvent e, var detail, Element target) => gameStoreService.save(game).then((_) => gotoPath("#/games"));
+  
+  cancel() => gotoPath("#/games");
 }
