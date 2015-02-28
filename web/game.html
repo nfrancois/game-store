@@ -6,14 +6,15 @@
 <polymer-element name="x-game">
   <template>
     <link rel="stylesheet" href="css/app.css">
-
-    
+ 
     <paper-shadow class="game">
       <paper-item>
         <img id="image" _src="img/games/{{game.image}}" alt="Game picture" class="span2">
         <div>
             <h3>{{game.name | upperCase}}
-              <paper-icon-button class="hover" icon="create" title="with :hover style" on-click="{{edit}}"></paper-icon-button>
+              <a _href="#/games/{{game.id}}">
+                <paper-icon-button class="hover" icon="create" title="with :hover style"></paper-icon-button>
+              </a>
               <paper-icon-button class="hover" icon="delete" title="with :hover style" on-click="{{delete}}"></paper-icon-button>
             </h3>
             <p><b>Genre:</b> {{game.genre}}</p>
