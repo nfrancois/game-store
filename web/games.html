@@ -3,6 +3,7 @@
 <link rel="import" href="packages/core_elements/core_toolbar.html">
 <link rel="import" href="packages/core_elements/core_media_query.html">
 <link rel="import" href="packages/core_elements/core_input.html">
+<link rel="import" href="packages/core_elements/core_header_panel.html">
 <link rel="import" href="packages/paper_elements/paper_icon_button.html">
 <link rel="import" href="packages/paper_elements/paper_input.html">
 <link rel="import" href="packages/paper_elements/paper_fab.html">
@@ -11,19 +12,31 @@
 
 <polymer-element name="x-games">
 	<template>
+    <style>
+      .bottom-float {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+      }
+    </style>
     <link rel="stylesheet" href="css/app.css">
     
     <!-- Navigation bar -->
-    <core-toolbar style="background: #4285f4;">
-      <paper-icon-button icon="menu"></paper-icon-button>
-      <span flex>Game Store</span>
-      <paper-input label="Search..." value="{{search}}"></paper-input>
-      <paper-icon-button icon="search"></paper-icon-button>
-    </core-toolbar>   
     
+    <core-header-panel flex>
+      <core-toolbar id="mainheader" style="background: #4285f4;">
+        <paper-icon-button icon="menu"></paper-icon-button>
+        <span flex>Game Store</span>
+        <paper-input label="Search..." value="{{search}}"></paper-input>
+        <paper-icon-button icon="search"></paper-icon-button>
+      </core-toolbar>
+     </core-header-panel>   
+
+    <div>
     <a href="#/games/new">
       <paper-fab icon="create" class="red" title="create"></paper-fab>
     </a>
+    </div>
     
 		<header class="page-header">
 		    <h1>Games <small>{{games.length}} games</small></h1>
