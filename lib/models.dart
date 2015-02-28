@@ -1,19 +1,32 @@
 library game_store.model;
 
 import 'package:observe/observe.dart';
+import 'package:gcloud/db.dart';
 
-class Game extends Object with Observable {
-  @observable int id;
-  @observable String name;
-  @observable String genre;
-  @observable String description;
-  @observable String image;
-  @observable int rating;
+@Kind()
+class Game extends Model with Observable {
+
+  @StringProperty()
+  @observable 
+  String name;
+  @StringProperty()
+  @observable 
+  String genre;
+  @StringProperty()
+  @observable 
+  String description;
+  @StringProperty()
+  @observable 
+  String image;
+  @IntProperty()
+  @observable 
+  int rating;
   
   // CONSTRUCTORS
-  Game(this.id, this.name, this.genre, this.description, this.image, this.rating);
-  Game.sample() : this(null, "Game name", "Game genre", "Game description", "darts.jpg", 1);
-   
+  Game(this.name, this.genre, this.description, this.image, this.rating);
+  // TODO remove
+  Game.sample() : this("Game name", "Game genre", "Game description", "darts.jpg", 1);
+     
   // Used for DEBUGGING
   String toString() => "Game{id: $id, name: $name}";
 
@@ -31,7 +44,7 @@ class Game extends Object with Observable {
   };
   
   // Used for SERIALIZATION
-  static fromMap(Map values) => new Game(values['id'], values['name'], values['genre'], values['description'], values['image'], values['rating']);
+  static fromMap(Map values) => new Game(values['name'], values['genre'], values['description'], values['image'], values['rating']);
   Map toMap() => {'id': id, 'name': name, 'genre': genre, 'description': description, 'image': image, 'rating': rating};
 }
 
