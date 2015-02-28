@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:game_store/models.dart';
+import 'utils.dart';
 
 @CustomTag('x-game')
 class XGame extends PolymerElement {
@@ -16,4 +17,6 @@ class XGame extends PolymerElement {
   increaseRating(Event e, var detail, Node target) => game.rating++;
   
   delete(Event e, var detail, Element target) => dispatchEvent(new CustomEvent('delete', detail: game));
+  
+  edit() => gotoPath("#/games/${game.id}");
 }
